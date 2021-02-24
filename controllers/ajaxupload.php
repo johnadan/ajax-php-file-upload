@@ -10,6 +10,9 @@
 
         $errorimg = $_FILES["image"]["error"];
         //stores any error code resulting from the transfer
+        if($errorimg > 0){
+            die('<div class="alert alert-danger mt-3" role="alert"> An error occurred while uploading the file </div>');
+        }
 
         // get uploaded file's extension
         $ext = strtolower(pathinfo($img, PATHINFO_EXTENSION));
@@ -22,14 +25,16 @@
             echo "<img src='$path' />";
             $name = $_POST['name'];
             $email = $_POST['email'];
-        //include database configuration file
-        include_once 'connect.php';
-        //insert form data in the database
-        $insert = $conn->query("INSERT uploading (name,email,file_name) VALUES ('".$name."','".$email."','".$path."')");
-        //echo $insert?'ok':'err';
+            //include database configuration file
+            include_once 'connect.php';
+            //insert form data in the database
+            $insert = $conn->query("INSERT uploading (name,email,file_name) VALUES ('".$name."','".$email."','".$path."')");
+            //echo $insert?'ok':'err';
+            echo '<div class="alert alert-success mt-3" role="alert"> File uploaded </div>';
             }
         } else {
-        echo 'Invalid file type';
+        // echo 'Invalid file type';
+        echo '<div class="alert alert-danger mt-3" role="alert"> Invalid file type </div>';
             }
         }
 

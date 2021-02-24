@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Ajax File Upload with jQuery and PHP</title>
     <link rel="stylesheet" href="style.css" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery-1.11.3-jquery.min.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
 
@@ -31,7 +32,7 @@
                 </div>
 
                 <input id="uploadImage" type="file" accept="image/*" name="image" />
-                <div id="preview">
+                <div id="preview" class="mt-3">
                     <img src="../assets/images/docs.png" width="150" height="200"/>
                 </div>
                 <br>
